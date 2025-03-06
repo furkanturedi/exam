@@ -10,7 +10,9 @@ int		main(int ac, char **av)
 	else
 	{
 		while (av[1][i])
+		{
 			i++;
+		}
 		i--;
 		while (i >= 0)
 		{
