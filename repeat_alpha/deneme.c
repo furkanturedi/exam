@@ -4,25 +4,20 @@ int countrepeat(char c)
 {
     int count;
 
-    if (c <= 'z' && c >= 'a' || c <= 'Z' && c >= 'A')
+    if (c <= 'z' && c >= 'a' )
     {
-        if (c <= 'z' && c >= 'a' )
-        {
-            count = c - 'a' + 1;
-            return(count);
-        }
+        count = c - 'a' + 1;
+    }
         else if (c <= 'Z' && c >= 'A')
-        {
-            count = c - 'A' + 1;
-            return(count);
-        }
-        else
-        return(1);
+    {
+        count = c - 'A' + 1;
     }
-    else
+        else
     {
         return(1);
     }
+    return(count);
+
 }
 
 
