@@ -1,22 +1,21 @@
-#include <stdio.h>
+#include <unistd.h>
 
 int main(int argc, char **argv)
 {
     if (argc != 2)
     {
-        printf("\n");
+        write(1,"\n",1);
         return (0);
     }
 
-    char *str = argv[1];
     int i = 0;
 
-    while (str[i])
+    while (argv[1][i])
     {
-        if (i % 2 == 1) // Sadece tek sayılı indeksleri yazdır (1, 3, 5, ...)
-            printf("%c", str[i]);
+        if (i % 2 == 1)
+            write(1,&argv[1][i],1);
         i++;
     }
-    printf("\n");
+    write(1,"\n",1);
     return (0);
 }
