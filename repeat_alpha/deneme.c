@@ -1,41 +1,50 @@
 #include <unistd.h>
 
-int count_repeat(char c)
+int countrepeat(char c)
 {
-    int repeat;
-    if (c >='a' && c <= 'z' || c >= 'A' && c<='Z')
-    {
-        if (c >='a' && c <= 'z')
-        {
-            repeat = c - 'a' + 1;
-            return(repeat);
-        }
-        else if (c >='A' && c <= 'Z')
-        {
-            repeat = c - 'a' + 1;
-            return(repeat);
-        }
-    }
-    return(1);
-}
+    int count;
 
-int main(int argc, char **argv)
-{
-    int repeat;
-    int i = 0;
-    if (argc != 2)
+    if (c <= 'z' && c >= 'a' || c <= 'Z' && c >= 'A')
     {
-        write(1, "\n", 1);
+        if (c <= 'z' && c >= 'a' )
+        {
+            count = c - 'a' + 1;
+            return(count);
+        }
+        else if (c <= 'Z' && c >= 'A')
+        {
+            count = c - 'A' + 1;
+            return(count);
+        }
+        else
+        return(1);
     }
     else
     {
-            while (argv[1][i])
+        return(1);
+    }
+}
+
+
+int main(int argc, char **argv)
+{
+    int count;
+    int i = 0;
+
+    if (argc != 2)
+    {
+        write(1,"\n",1);
+    }
+    else
+    {
+        while (argv[1][i])
+        {
+            count = countrepeat(argv[1][i]);
+            while (count--)
             {
-                repeat = count_repeat(argv[1][i]);
-                while (repeat--)
                 write(1,&argv[1][i],1);
-                i++;
             }
-            write(1,"\n",1);
+            i++;
+        }
     }
 }

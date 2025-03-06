@@ -23,7 +23,9 @@ int		main(int argc, char **argv)
 		{
 			repeat = letter_count(argv[1][i]);
 			while (repeat--)
+			{
 				write(1, &argv[1][i], 1);
+			}
 			i++;;
 		}
 	}
