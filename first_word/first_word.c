@@ -1,14 +1,20 @@
 #include <unistd.h>
 
-int		main(int ac, char **av)
+int		main(int argc, char **argv)
 {
-	if (ac == 2)
+	int i = 0;
+	if (argc == 2)
 	{
-		while (*av[1] && (*av[1] == ' ' || *av[1] == '\t'))
-			++av[1];
-		while (*av[1] != '\0' && (*av[1] != ' ' && *av[1] != '\t'))
-			write(1, av[1]++, 1);
+		while (argv[1][i] && (argv[1][i] == ' ' || argv[1][i] == '\t'))
+			{
+				i++;
+			}	
+		while (argv[1][i] != '\0' && (argv[1][i] != ' ' && argv[1][i] != '\t'))
+			{
+				write(1, &argv[1][i], 1);
+				i++;
+			}
 	}
-	ft_putchar('\n');
+	write(1,"\n",1);
 	return (0);
 }
